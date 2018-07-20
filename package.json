@@ -1,0 +1,17 @@
+{
+  "name": "attrs-observe",
+  "description": "Observe presence of list of attributes",
+  "repository": "https://github.com/bahrus/attrs-observe",
+  "author": "bahrus <anderson.bruce.b@gmail.com>",
+  "license": "MIT",
+  "main": "attrs-observe.js",
+  "dependencies": {
+    "xtal-latx": "0.0.17"
+  },
+  "devDependencies": {
+    "@polymer/polymer": "^3.0.0",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  }
+}
