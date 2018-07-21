@@ -1,6 +1,6 @@
 {
   "name": "attrs-observe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Observe presence of list of attributes",
   "repository": "https://github.com/bahrus/attrs-observe",
   "author": "bahrus <anderson.bruce.b@gmail.com>",
