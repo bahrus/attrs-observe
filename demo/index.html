@@ -18,13 +18,13 @@
       <div>
         I am <span c="whatAmI"></span>
       </div>
-      <script nomodule>
+      <!-- <script nomodule>
         ({
-          whatAmI: 'Superman'
+          
         })
       </script>
-      <p-d-x on="eval" to="{input.whatAmI:whatAmI}"></p-d-x>
-      <attrs-observe observe="c"></attrs-observe>
+      <p-d-x on="eval" to="{input.whatAmI:whatAmI}"></p-d-x> -->
+      <attrs-observe observe="c" input='{"whatAmI": "Superman"}'></attrs-observe>
     </div>
   </body>
 </html>

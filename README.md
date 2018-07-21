@@ -1,6 +1,11 @@
 # \<attrs-observe\>
 
-Observe presence of list of attributes
+Observe and act on the presence of an attribute
+
+attrs-observe is a vanilla-ish web component whose primary purpose is to populate DOM with dynamic data.  You may be shocked to learn that this isn't the first such library that does this.  attrs-observe is vaguely inspired by XSLT.
+
+From the point of view of using what's built into the browser, 
+
 
 ## Install the Polymer-CLI
 
