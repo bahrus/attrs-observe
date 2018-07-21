@@ -18,13 +18,27 @@
       <div>
         I am <span c="whatAmI"></span>
       </div>
-      <!-- <script nomodule>
+      <attrs-observe observe="c" input='{"whatAmI": "the walrus"}'></attrs-observe>
+
+      <div>
+        <label for="joker">Don't you think the joker laughs at you</label><input id="joker" type="checkbox" c="well?">
+      </div>
+      <attrs-observe observe="c" input='{"well?": {"checked": true}}'></attrs-observe>
+
+
+      <div>
+        I am the <span c="whatAmI"></span>
+      </div>
+      <script nomodule>
         ({
-          
+          whatAmI: s =>{
+            s.style.color = 'yellow';
+            s.innerText = 'Eggman';
+          }
         })
       </script>
-      <p-d-x on="eval" to="{input.whatAmI:whatAmI}"></p-d-x> -->
-      <attrs-observe observe="c" input='{"whatAmI": "Superman"}'></attrs-observe>
+      <p-d-x on="eval" to="{input.whatAmI:whatAmI"></p-d-x>
+      <attrs-observe observe="c"></attrs-observe>
     </div>
   </body>
 </html>

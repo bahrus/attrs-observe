@@ -94,7 +94,7 @@
   } //# sourceMappingURL=xtal-latx.js.map
 
 
-  var deep = 'deep';
+  var deeply = 'deeply';
   var input = 'input';
   var observe = 'observe';
 
@@ -108,14 +108,14 @@
 
       babelHelpers.classCallCheck(this, AttrsObserve);
       _this3 = babelHelpers.possibleConstructorReturn(this, (AttrsObserve.__proto__ || Object.getPrototypeOf(AttrsObserve)).apply(this, arguments));
-      _this3._deep = false;
+      _this3._deeply = false;
       return _this3;
     }
 
     babelHelpers.createClass(AttrsObserve, [{
       key: "connectedCallback",
       value: function connectedCallback() {
-        this._upgradeProperties([deep, input, observe]);
+        this._upgradeProperties([deeply, input, observe]);
 
         this._connected = true;
         this.onPropsChange();
@@ -141,7 +141,7 @@
         this.disconnect();
         var config = {
           childList: true,
-          subtree: this._deep
+          subtree: this._deeply
         };
         this._siblingObserver = new MutationObserver(function (mutationsList) {
           _this4.handleMutations(mutationsList);
@@ -197,7 +197,7 @@
               break;
 
             case 'object':
-              _el[key] = val;
+              Object.assign(_el, val);
               break;
 
             case 'function':
@@ -210,7 +210,7 @@
       key: "attributeChangedCallback",
       value: function attributeChangedCallback(name, oldVal, newVal) {
         switch (name) {
-          case deep:
+          case deeply:
             this['_' + name] = newVal !== null;
             break;
 
@@ -240,12 +240,12 @@
         return prevSibling;
       }
     }, {
-      key: "deep",
+      key: "deeply",
       get: function get() {
-        return this._deep;
+        return this._deeply;
       },
       set: function set(val) {
-        this.this.attr(deep, val, '');
+        this.this.attr(deeply, val, '');
       }
     }, {
       key: "input",
@@ -254,7 +254,12 @@
       },
       set: function set(val) {
         this._input = val;
-        this.onPropsChange();
+
+        if (this._siblingObserver) {
+          this.pairDomElementsWithInput(this);
+        } else {
+          this.onPropsChange();
+        }
       }
     }, {
       key: "observe",
@@ -272,7 +277,7 @@
     }, {
       key: "observedAttributes",
       get: function get() {
-        return babelHelpers.get(AttrsObserve.__proto__ || Object.getPrototypeOf(AttrsObserve), "observedAttributes", this).concat([deep, input, observe]);
+        return babelHelpers.get(AttrsObserve.__proto__ || Object.getPrototypeOf(AttrsObserve), "observedAttributes", this).concat([deeply, input, observe]);
       }
     }]);
     return AttrsObserve;

@@ -65,27 +65,32 @@ function XtallatX(superClass) {
     };
 }
 //# sourceMappingURL=xtal-latx.js.map
-const deep = 'deep';
+const deeply = 'deeply';
 const input = 'input';
 const observe = 'observe';
 class AttrsObserve extends XtallatX(HTMLElement) {
     constructor() {
         super(...arguments);
-        this._deep = false;
+        this._deeply = false;
     }
     static get is() { return 'attrs-observe'; }
-    get deep() {
-        return this._deep;
+    get deeply() {
+        return this._deeply;
     }
-    set deep(val) {
-        this.this.attr(deep, val, '');
+    set deeply(val) {
+        this.this.attr(deeply, val, '');
     }
     get input() {
         return this._input;
     }
     set input(val) {
         this._input = val;
-        this.onPropsChange();
+        if (this._siblingObserver) {
+            this.pairDomElementsWithInput(this);
+        }
+        else {
+            this.onPropsChange();
+        }
     }
     get observe() {
         return this._observe;
@@ -94,10 +99,10 @@ class AttrsObserve extends XtallatX(HTMLElement) {
         this.attr(observe, val);
     }
     static get observedAttributes() {
-        return super.observedAttributes.concat([deep, input, observe]);
+        return super.observedAttributes.concat([deeply, input, observe]);
     }
     connectedCallback() {
-        this._upgradeProperties([deep, input, observe]);
+        this._upgradeProperties([deeply, input, observe]);
         this._connected = true;
         this.onPropsChange();
     }
@@ -115,7 +120,7 @@ class AttrsObserve extends XtallatX(HTMLElement) {
         if (!previousElement)
             return;
         this.disconnect();
-        const config = { childList: true, subtree: this._deep };
+        const config = { childList: true, subtree: this._deeply };
         this._siblingObserver = new MutationObserver((mutationsList) => {
             this.handleMutations(mutationsList);
         });
@@ -154,7 +159,7 @@ class AttrsObserve extends XtallatX(HTMLElement) {
                     }
                     break;
                 case 'object':
-                    el[key] = val;
+                    Object.assign(el, val);
                     break;
                 case 'function':
                     val(el, i, this);
@@ -164,7 +169,7 @@ class AttrsObserve extends XtallatX(HTMLElement) {
     }
     attributeChangedCallback(name, oldVal, newVal) {
         switch (name) {
-            case deep:
+            case deeply:
                 this['_' + name] = newVal !== null;
                 break;
             case input:
