@@ -97,6 +97,7 @@
   var deeply = 'deeply';
   var input = 'input';
   var observe = 'observe';
+  var nodes_populated = 'nodes-populated';
 
   var AttrsObserve =
   /*#__PURE__*/
@@ -152,6 +153,10 @@
         });
 
         this.pairDomElementsWithInput(previousElement);
+        this.value = previousElement;
+        this.de(nodes_populated, {
+          value: previousElement
+        });
       }
     }, {
       key: "handleMutations",
@@ -162,6 +167,11 @@
           if (mutation.addedNodes) {
             mutation.addedNodes.forEach(function (node) {
               return _this5.pairDomElementsWithInput(node);
+            });
+            _this5.value = mutation.addedNodes;
+
+            _this5.de(nodes_populated, {
+              value: mutation.addedNodes
             });
           }
         });

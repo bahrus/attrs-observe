@@ -68,6 +68,7 @@ function XtallatX(superClass) {
 const deeply = 'deeply';
 const input = 'input';
 const observe = 'observe';
+const nodes_populated = 'nodes-populated';
 class AttrsObserve extends XtallatX(HTMLElement) {
     constructor() {
         super(...arguments);
@@ -126,11 +127,19 @@ class AttrsObserve extends XtallatX(HTMLElement) {
         });
         this._siblingObserver.observe(previousElement, { childList: true });
         this.pairDomElementsWithInput(previousElement);
+        this.value = previousElement;
+        this.de(nodes_populated, {
+            value: previousElement,
+        });
     }
     handleMutations(mutationsList) {
         mutationsList.forEach(mutation => {
             if (mutation.addedNodes) {
                 mutation.addedNodes.forEach(node => this.pairDomElementsWithInput(node));
+                this.value = mutation.addedNodes;
+                this.de(nodes_populated, {
+                    value: mutation.addedNodes,
+                });
             }
         });
     }

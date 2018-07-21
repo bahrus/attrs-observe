@@ -2,6 +2,7 @@ import { XtallatX } from "./node_modules/xtal-latx/xtal-latx.js";
 var deeply = 'deeply';
 var input = 'input';
 var observe = 'observe';
+var nodes_populated = 'nodes-populated';
 
 var AttrsObserve =
 /*#__PURE__*/
@@ -57,6 +58,10 @@ function (_XtallatX) {
       });
 
       this.pairDomElementsWithInput(previousElement);
+      this.value = previousElement;
+      this.de(nodes_populated, {
+        value: previousElement
+      });
     }
   }, {
     key: "handleMutations",
@@ -67,6 +72,11 @@ function (_XtallatX) {
         if (mutation.addedNodes) {
           mutation.addedNodes.forEach(function (node) {
             return _this3.pairDomElementsWithInput(node);
+          });
+          _this3.value = mutation.addedNodes;
+
+          _this3.de(nodes_populated, {
+            value: mutation.addedNodes
           });
         }
       });

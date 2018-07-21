@@ -3,6 +3,7 @@ import {XtallatX} from 'xtal-latx/xtal-latx.js';
 const deeply = 'deeply';
 const input = 'input';
 const observe = 'observe';
+const nodes_populated = 'nodes-populated';
 class AttrsObserve extends XtallatX(HTMLElement){
     static get is(){return 'attrs-observe';}
     _deeply = false;
@@ -59,11 +60,19 @@ class AttrsObserve extends XtallatX(HTMLElement){
         });
         this._siblingObserver.observe(previousElement,  { childList: true});
         this.pairDomElementsWithInput(previousElement);
+        this.value = previousElement;
+        this.de(nodes_populated, {
+            value: previousElement,
+        });
     }
     handleMutations(mutationsList: MutationRecord[]){
         mutationsList.forEach(mutation =>{
             if(mutation.addedNodes){
                 mutation.addedNodes.forEach(node => this.pairDomElementsWithInput(node as HTMLElement));
+                this.value = mutation.addedNodes;
+                this.de(nodes_populated, {
+                    value: mutation.addedNodes,
+                });
             }
         })
     }

@@ -10,6 +10,10 @@ From the point of view of using what's built into the browser, as far as dynamic
 2)  The slot mechanism that comes with Shadow DOM.
 3)  Hopefully soon, [template instantiation](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md), which would likely diminish the benifit of this web component.
 
+Unlike many existing alternatives, this one just populates an existing DOM node tree.
+
+Each time populating finishes, an event, "nodes-populated-changed" is emitted.
+
 ## Simple data populating:
 
 ```html
