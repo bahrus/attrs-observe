@@ -6,14 +6,12 @@
   "author": "bahrus <anderson.bruce.b@gmail.com>",
   "license": "MIT",
   "main": "attrs-observe.js",
+  "module": "attrs-observe.js",
   "dependencies": {
-    "xtal-latx": "0.0.17"
+    "xtal-latx": "0.0.84"
   },
   "devDependencies": {
-    "@polymer/polymer": "^3.0.0",
-    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "wct-browser-legacy": "^1.0.0",
-    "jiife": "^0.0.3"
+    "jiife": "^0.0.10"
   }
 }
