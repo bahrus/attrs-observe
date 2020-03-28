@@ -11,7 +11,6 @@
     "xtal-latx": "0.0.84"
   },
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "jiife": "^0.0.10"
+    "@webcomponents/webcomponentsjs": "2.4.3"
   }
 }

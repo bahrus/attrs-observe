@@ -4,7 +4,7 @@ Observe and act on the presence of an attribute
 
 attrs-observe is a vanilla-ish web component whose primary purpose is to populate DOM with dynamic data.  You may be shocked to learn that this isn't the first such library that does this.  The size of this one is ~1.4kb minified and gzipped.  
 
-From the point of view of using what's built into the browser, as far as dynamically populating DOM from data, skipping an early Microsoft expiriment, there's:
+From the point of view of using what's built into the browser, as far as dynamically populating DOM from data, skipping an early Microsoft experiment, there's:
 
 1)  [XSLT](https://www.w3schools.com/xml/xsl_intro.asp), supported by all browsers (including Chrome, Version 1!).
 2)  The slot mechanism that comes with Shadow DOM.
@@ -71,7 +71,7 @@ Produces
 </div>
 ```
 
-One can specify whether to monitor for new nodes recursively thoughout the DOM tree by specifying deeply:
+One can specify whether to monitor for new nodes recursively throughout the DOM tree by specifying deeply:
 
 ```html
 <attrs-observe observe="c" deeply></attrs-observe>
