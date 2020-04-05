@@ -8,7 +8,8 @@
   "main": "attrs-observe.js",
   "module": "attrs-observe.js",
   "dependencies": {
-    "xtal-latx": "0.0.84"
+    "trans-render": "0.0.143",
+    "xtal-element": "0.0.101"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "2.4.3"

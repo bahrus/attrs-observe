@@ -1,4 +1,6 @@
-import {XtallatX} from 'xtal-latx/xtal-latx.js';
+import {define} from 'trans-render/define.js';
+import {hydrate} from 'trans-render/hydrate.js';
+import {XtallatX} from 'xtal-element/xtal-latx.js';
 
 const deeply = 'deeply';
 const input = 'input';
